@@ -12,11 +12,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 public interface PerfilRepository extends MongoRepository<Perfil, String>
 {
-//    public Perfil findById(String id);
-//    public List<Perfil> findByTipo(String tipo);
     
-//    public List<Perfil> findByPerfilData(LocalDate postagemData);
-    
-//    @Query(value = "{postagemData: ?0}", count = true)
-//    public long countPerfilData(LocalDate postagemData);
 }

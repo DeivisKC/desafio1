@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "5c2cf0d3-b5f4-496b-b538-2c1b799554eb",
+		"name": "Desafio1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28019685"
+	},
+	"item": [
+		{
+			"name": "Criar postagem",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"texto\":\"texto do corpo da postagem\",\"usuario\":\"ironmaiden\",\"tipo\":\"P\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/desafio-1/postagem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"desafio-1",
+						"postagem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar postagens",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/desafio-1/postagem",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"desafio-1",
+						"postagem"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar perfis",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/desafio-1/perfil",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"desafio-1",
+						"perfil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar perfil",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"usuario\":\"deiviskc\",\"nome\":\"Deivis\",\"sobrenome\":\"Kolling Corrêa\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/desafio-1/perfil",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"desafio-1",
+						"perfil"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Página do perfil",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/desafio-1/perfilPagina/deiviskc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"desafio-1",
+						"perfilPagina",
+						"deiviskc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar seguidor (seguir um usuário)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"usuarioSeguidor\":\"deiviskc\",\"usuarioSeguido\":\"ironmaiden\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/desafio-1/seguidor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"desafio-1",
+						"seguidor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar seguidores (todos os registros, sem filtro)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/desafio-1/seguidor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"desafio-1",
+						"seguidor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir seguidor (deixar de seguir)",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/desafio-1/seguidor/deiviskc_ironmaiden",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"desafio-1",
+						"seguidor",
+						"deiviskc_ironmaiden"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de usuários seguidos por alguém",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/desafio-1/seguidor/usuarioseguidor/deiviskc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"desafio-1",
+						"seguidor",
+						"usuarioseguidor",
+						"deiviskc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de seguidores de alguém",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/desafio-1/seguidor/usuarioseguido/deiviskc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"desafio-1",
+						"seguidor",
+						"usuarioseguido",
+						"deiviskc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

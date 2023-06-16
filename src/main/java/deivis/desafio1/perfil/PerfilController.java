@@ -27,14 +27,14 @@ public class PerfilController
 
     }
 
-    // Aggregate root
-    // tag::get-aggregate-root[]
+    //Lista todos os perfis
     @GetMapping("/perfil")
     List<Perfil> todos()
     {
         return repository.findAll();
     }
     
+    //Busca o perfil por usuário, que é a chave da tabela
     @GetMapping("/perfil/{usuario}")
     Perfil usuario(@PathVariable String usuario)
     {
@@ -42,6 +42,11 @@ public class PerfilController
         return perfil.get();
     }
     
+    //Página do "perfil". Retorna os dados do usuário, e todas as suas postagens
+    //Criei uma classe PerfilPagina que herda a Perfil,.
+    //Essa classe vai ter os dados do perfil, mais algumas informações de contagem
+    //E também a coleção de Postagens daquele usuário.
+    //Criei alguns contadores no repositório das Postagens pra facilitar.
     @GetMapping("/perfilPagina/{usuario}")
     PerfilPagina perfilPagina(@PathVariable String usuario)
     {
@@ -60,6 +65,7 @@ public class PerfilController
         return perfilPagina;
     }
     
+    //Cadastro de perfil. Dizia pra não criar, mas achei bom pra eu mesmo criar os meus.
     @PostMapping("/perfil")
     String novoPerfil(@RequestBody Perfil perfil)
     {
@@ -68,11 +74,13 @@ public class PerfilController
         {
             perfil.setDataEntrada(LocalDate.now());
             
+            //Tamanho máximo do nome de usuário
             if (perfil.getUsuario().trim().length() > 14)
             {
                 return "Erro! Tamanho máximo do usuário excedido.";
             }
             
+            //Só pode ter caracteres alfanuméricos
             if(!perfil.getUsuario().matches("^[a-zA-Z0-9]*$"))
             {
                 return "Erro! Usuário pode conter apenas caracteres alfanuméricos.";
@@ -88,22 +96,16 @@ public class PerfilController
         }
     }
 
-//    // Single item
-//    @GetMapping("/perfil/{id}")
-//    Perfil one(@PathVariable String id)
+    //No manual dizia pra não criar CRUD do usuário, mas ta ai igual.
+//    @PutMapping("/perfil/{usuario}")
+//    Perfil replacePerfil(@RequestBody Perfil novoPerfil, @PathVariable String usuario)
 //    {
-//        Optional<Perfil> post = repository.findById(id);
-//        return post.get();
-//    }
-
-//    @PutMapping("/perfil/{id}")
-//    Perfil replacePerfil(@RequestBody Perfil newPerfil, @PathVariable String id)
-//    {
-//        return newPerfil;
+//        return repository.save(novoPerfil);
 //    }
 //
-//    @DeleteMapping("/perfil/{id}")
-//    void deletePerfil(@PathVariable String id)
+//    @DeleteMapping("/perfil/{usuario}")
+//    void deletePerfil(@PathVariable String usuario)
 //    {
+//        repository.deleteById(usuario);
 //    }
 }
